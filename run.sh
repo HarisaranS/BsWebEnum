@@ -23,3 +23,5 @@ rm $url/recon/f.txt
 echo "[+] Probing for alive domains..."
 cat $url/recon/final.txt | httprobe -s | sed 's/:443$//' >> $url/recon/alive.txt
 
+echo "[+] Done!"
+echo "Alive domains saved in : $url/recon/alive.txt"
