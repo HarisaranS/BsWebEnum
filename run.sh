@@ -19,3 +19,7 @@ echo "[+] Harvesting subdomains with Amass..."
 amass enum -d $url >> $url/recon/f.txt
 sort -u $url/recon/f.txt >> $url/recon/final.txt
 rm $url/recon/f.txt
+
+echo "[+] Probing for alive domains..."
+cat $url/recon/final.txt | httprobe -s | sed 's/:443$//' >> $url/recon/alive.txt
+
