@@ -10,7 +10,7 @@ if [ ! -d "$url/recon" ];then
 		mkdir $url/recon
 fi
 
-if [ ! -d "$url/recon/wayback" |;then
+if [ ! -d "$url/recon/wayback" ];then
 		mkdir $url/recon/wayback
 fi
 
@@ -27,9 +27,9 @@ rm $url/recon/f.txt
 echo "[+] Probing for alive domains..."
 cat $url/recon/final.txt | httprobe -s | sed 's/:443$//' >> $url/recon/alive.txt
 
-echo "[+] Pulling and compile all possible params found in wayback data..."
-cat $url/recon/wayback/wayback_output.txt | grep '?*=' | cut -d '=' -f1 | sort -u >> $url/recon/wayback/wayback_params.txt
-for line in $(cat $uel/recon/wayback/wayback_params.txt):do echo $line'=';done
+cat "$url/recon/wayback/wayback_output.txt" | grep '?*=' | cut -d '=' -f1 | sort -u > "$url/recon/wayback/wayback_params.txt"
+echo "[+] Pulling and compiling all possible params..."
+for line in $(cat "$url/recon/wayback/wayback_params.txt"); do echo "$line="; done
 
 echo "[+] Done!"
 echo "Alive domains saved in : $url/recon/alive.txt"
