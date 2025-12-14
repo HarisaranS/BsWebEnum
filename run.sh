@@ -2,15 +2,15 @@
 
 url=$1
 
-if [ ! -d "$url" ];then
+if [ ! -d "$url" ]; then
 		mkdir $url
 fi
 
-if [ ! -d "$url/recon" ];then 
+if [ ! -d "$url/recon" ]; then 
 		mkdir $url/recon
 fi
 
-if [ ! -d "$url/recon/wayback" ];then
+if [ ! -d "$url/recon/wayback" ]; then
 		mkdir $url/recon/wayback
 fi
 
